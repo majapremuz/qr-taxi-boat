@@ -1,0 +1,7 @@
+{
+  "name": "QR Taxi Boat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
