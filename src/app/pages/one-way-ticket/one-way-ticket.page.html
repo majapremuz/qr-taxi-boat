@@ -1,0 +1,56 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+      <a (click)="navOneway()" [ngClass]="{'active-nav': currentPage === 'one-way-ticket'}">Jedan smjer</a>
+      <a (click)="navReturnTicket()" [ngClass]="{'active-nav': currentPage === 'return-ticket'}">Povratna karta</a>
+      <a (click)="navList()" [ngClass]="{'active-nav': currentPage === 'list'}">Popis karata</a>
+      <a (click)="navScanner()" [ngClass]="{'active-nav': currentPage === 'scanner'}">Skener karata</a>
+      <a (click)="navlogout()">Odjava</a>
+  </ion-header>
+  
+  <div class="container">
+    <h1>Izaberite datum</h1>
+    <select name="" id="">
+      <option value="">2024-01-01</option>
+      <option value="">2024-01-02</option>
+      <option value="">2024-01-03</option>
+      <option value="">2024-01-04</option>
+      <option value="">2024-01-05</option>
+    </select>
+
+    <h1>Izaberite vrijeme</h1>
+    <select name="" id="">
+      <option value="">08:00</option>
+      <option value="">09:00</option>
+      <option value="">10:00</option>
+    </select>
+
+    <h1>Broj odraslih putnika</h1>
+    <select name="" id="">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+
+    <h1>Broj putnika 3-12 godine</h1>
+    <select name="" id="">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+
+    <h1>Broj putnika 0-3 godine</h1>
+    <select name="" id="">
+      <option value="">1</option>
+      <option value="">2</option>
+      <option value="">3</option>
+    </select>
+
+    <h1>Način plaćanja</h1>
+    <select name="" id="">
+      <option value="">Gotovina</option>
+      <option value="">Kartica</option>
+    </select>
+
+    <ion-button expand="block">Unesite kartu</ion-button>
+  </div>
+</ion-content>

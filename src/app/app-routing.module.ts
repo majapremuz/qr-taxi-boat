@@ -13,6 +13,22 @@ const routes: Routes = [
     redirectTo: 'home',
     pathMatch: 'full'
   },
+  {
+    path: 'scanner',
+    loadChildren: () => import('./pages/scanner/scanner.module').then( m => m.ScannerPageModule)
+  },
+  {
+    path: 'one-way-ticket',
+    loadChildren: () => import('./pages/one-way-ticket/one-way-ticket.module').then( m => m.OneWayTicketPageModule)
+  },
+  {
+    path: 'return-ticket',
+    loadChildren: () => import('./pages/return-ticket/return-ticket.module').then( m => m.ReturnTicketPageModule)
+  },
+  {
+    path: 'list',
+    loadChildren: () => import('./pages/list/list.module').then( m => m.ListPageModule)
+  },
 ];
 
 @NgModule({

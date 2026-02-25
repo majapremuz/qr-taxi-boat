@@ -1,0 +1,22 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+      <a (click)="navOneway()" [ngClass]="{'active-nav': currentPage === 'one-way-ticket'}">Jedan smjer</a>
+      <a (click)="navReturnTicket()" [ngClass]="{'active-nav': currentPage === 'return-ticket'}">Povratna karta</a>
+      <a (click)="navList()" [ngClass]="{'active-nav': currentPage === 'list'}">Popis karata</a>
+      <a (click)="navScanner()" [ngClass]="{'active-nav': currentPage === 'scanner'}">Skener karata</a>
+      <a (click)="navlogout()">Odjava</a>
+  </ion-header>
+
+  <div class="container">
+    <h1>Popis karata</h1>
+    <ion-list>
+      <ion-item>
+        <ion-label>
+          <h2>Karta</h2>
+          <p>Jedan smjer</p>
+          <p>Datum</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

@@ -1,0 +1,62 @@
+<ion-content>
+  <ion-header collapse="condense">
+      <a (click)="navOneway()" [ngClass]="{'active-nav': currentPage === 'one-way-ticket'}">Jedan smjer</a>
+      <a (click)="navReturnTicket()" [ngClass]="{'active-nav': currentPage === 'return-ticket'}">Povratna karta</a>
+      <a (click)="navList()" [ngClass]="{'active-nav': currentPage === 'list'}">Popis karata</a>
+      <a (click)="navScanner()" [ngClass]="{'active-nav': currentPage === 'scanner'}">Skener karata</a>
+      <a (click)="navlogout()">Odjava</a>
+  </ion-header>
+  
+  <h1>Ticket Scanner</h1>
+  <ion-list>
+    <ion-item *ngFor="let barcode of barcodes">
+      <ion-label position="stacked">{{ barcode.format }}</ion-label>
+      <ion-input type="text" [value]="barcode.rawValue"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <div class="ticket-container">
+    <img *ngIf="!userData && bgColor !== 'red'" src="assets/qr_border.png" alt="qr border">
+    <div *ngIf="userData" class="qr-data" [ngStyle]="{ 'background-color': bgColor, 'color': textColor }">
+          <h2>Ticket Info</h2>
+        <section>
+          <p><strong>Start Date:</strong> {{ userData.startdate }}</p>
+          <p><strong>Start Time:</strong> {{ userData.starttime }}</p>
+          <p><strong>Name:</strong> {{ userData.name }} {{ userData.surname }}</p>
+          <p><strong>Email:</strong> {{ userData.mail }}</p>
+          <p><strong>Phone:</strong> {{ userData.phone }}</p>
+          <p><strong>Message:</strong> {{ userData.message }}</p>
+          <p><strong>Kids:</strong> {{ userData.numberkids }}</p>
+          <p><strong>Teens:</strong> {{ userData.numberteens }}</p>
+          <p><strong>Adults:</strong> {{ userData.numberadults }}</p>
+        </section>
+    </div>
+
+    <div *ngIf="returnedData && bgColor === 'yellow'" class="qr-return" [ngStyle]="{ 'background-color': bgColor }">
+     <h2>This is a return ticket </h2>
+
+     <section>
+          <p><strong>Start Date:</strong> {{ returnedData.startdate }}</p>
+          <p><strong>Start Time:</strong> {{ returnedData.starttime }}</p>
+          <p><strong>Name:</strong> {{ returnedData.name }} {{ returnedData.surname }}</p>
+          <p><strong>Email:</strong> {{ returnedData.mail }}</p>
+          <p><strong>Phone:</strong> {{ returnedData.phone }}</p>
+          <p><strong>Message:</strong> {{ returnedData.message }}</p>
+          <p><strong>Kids:</strong> {{ returnedData.numberkids }}</p>
+          <p><strong>Teens:</strong> {{ returnedData.numberteens }}</p>
+          <p><strong>Adults:</strong> {{ returnedData.numberadults }}</p>
+        </section>
+
+   </div>
+  
+    <div *ngIf="!userData && bgColor === 'red'" class="qr-error" [ngStyle]="{ 'background-color': bgColor, 'color': textColor }">
+      <h2>Ticket Invalid</h2>
+      <p>This ticket has already been sold.</p>
+    </div>
+
+  </div>
+  
+    <ion-button (click)="scan()" [disabled]="!isSupported" class="scanBtn">
+      SCAN
+    </ion-button>
+</ion-content>

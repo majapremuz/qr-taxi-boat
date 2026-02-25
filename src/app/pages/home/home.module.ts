@@ -10,6 +10,7 @@ import { ComponentsModule } from '../../components/components.module';
 
 @NgModule({
   imports: [
+    HomePage,
     CommonModule,
     FormsModule,
     IonicModule,
@@ -17,6 +18,6 @@ import { ComponentsModule } from '../../components/components.module';
     TranslateModule,
     ComponentsModule
   ],
-  declarations: [HomePage]
+  declarations: []
 })
 export class HomePageModule {}
